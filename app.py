@@ -20,8 +20,8 @@ import collections
 import copy
 
 app = Flask(__name__,
-            static_folder="./docs/static",
-            template_folder="./docs")
+            static_folder="./dist/static",
+            template_folder="./dist")
 CORS(app)
 
 app.config['JSON_AS_ASCII'] = False  # 日本語文字化け対策

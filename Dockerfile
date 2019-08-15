@@ -1,7 +1,7 @@
 FROM python:3.6
 
 ARG project_dir=/app/
-ARG docs_dir=/app/docs/
+ARG dist_dir=/app/dist/
 
 ADD requirements.txt $project_dir
 ADD app.py $project_dir
@@ -9,7 +9,7 @@ ADD classify_image_graph_def.pb $project_dir
 ADD data.json $project_dir
 ADD features.npy $project_dir
 ADD helper.py $project_dir
-ADD docs $docs_dir
+ADD dist $dist_dir
 
 WORKDIR $project_dir
 

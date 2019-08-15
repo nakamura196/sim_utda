@@ -4,7 +4,7 @@
       <div class="container">
         <div class="md-layout">
           <div class="md-layout-item">
-            <h1 class="title">東京大学学術資産等アーカイブズポータル類似画像検索
+            <h1 class="title">東京大学学術資産等アーカイブズポータル<br/>画像検索
             </h1>
             <br>
             <md-button v-bind:to="{ name : 'search'}" class="md-success md-lg">

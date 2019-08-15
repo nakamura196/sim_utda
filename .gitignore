@@ -28,3 +28,4 @@ data.json
 backend/data/
 backend/output/
 __pycache__/
+output.zip

@@ -2,7 +2,7 @@
     <md-toolbar id="toolbar" md-elevation="0" class="md-transparent md-absolute" :class="extraNavClasses" :color-on-scroll="colorOnScroll">
         <div class="md-toolbar-row md-collapse-lateral">
             <div class="md-toolbar-section-start">
-                <h3 class="md-title">東京大学学術資産等アーカイブズポータル類似画像検索</h3>
+                <h3 class="md-title">東京大学学術資産等アーカイブズポータル画像検索</h3>
             </div>
             <div class="md-toolbar-section-end">
                 <md-button class="md-just-icon md-simple md-toolbar-toggle" :class="{toggled: toggledClass}" @click="toggleNavbarMobile()">
@@ -25,12 +25,17 @@
     
                             <md-list-item :to="{ name : 'search' }">
                                 <i class="material-icons">search</i>
-                                <p>検索</p>
+                                <p>画像検索</p>
                             </md-list-item>
     
                             <md-list-item :to="{ name : 'metadata' }">
                                 <i class="material-icons">list</i>
-                                <p>メタデータ一覧</p>
+                                <p>メタデータ検索</p>
+                            </md-list-item>
+
+                            <md-list-item href="https://nakamura196.github.io/sim_utda/">
+                                <i class="material-icons">3d_rotation</i>
+                                <p>可視化</p>
                             </md-list-item>
     
                         </md-list>
