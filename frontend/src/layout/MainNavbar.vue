@@ -33,7 +33,7 @@
                                 <p>メタデータ検索</p>
                             </md-list-item>
 
-                            <md-list-item href="https://nakamura196.github.io/sim_utda/">
+                            <md-list-item target="_blank" href="https://nakamura196.github.io/sim_utda/">
                                 <i class="material-icons">3d_rotation</i>
                                 <p>可視化</p>
                             </md-list-item>

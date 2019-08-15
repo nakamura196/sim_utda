@@ -22,7 +22,7 @@
               <h2 class="title text-center">About</h2>
 
               <h5 class="description">&nbsp;&nbsp;東京大学学術資産等アーカイブズポータルで公開されている画像を検索できます。</h5>
-              <h5 class="description">&nbsp;&nbsp;ImageNet 2012で訓練されたInception Convolutional Neural Networkを用いて抽出した特徴量のコサイン類似度を使用しています。</h5>
+              <h5 class="description">&nbsp;&nbsp;<a href="http://image-net.org/challenges/LSVRC/2012/">ImageNet 2012</a>で訓練された<a href="https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf">Inception</a> Convolutional Neural Networkを用いて抽出した特徴量のコサイン類似度を使用しています。</h5>
             </div>
           </div>
         </div>
@@ -62,27 +62,27 @@ export default {
       items: [
         {
           thumbnail:
-            "https://iiif.dl.itc.u-tokyo.ac.jp/iiif/kunshujou/A00_6010/046/046_0052.tif/4117,620,2186,2324/,300/0/default.jpg"
+            "https://da.dl.itc.u-tokyo.ac.jp/portal/sites/default/files/images/assets/1333099054093.jpg"
         },
         {
           thumbnail:
-            "https://iiif.dl.itc.u-tokyo.ac.jp/iiif/kunshujou/A00_6010/053/053_0162.tif/955,699,1920,1349/,300/0/default.jpg"
+            "https://da.dl.itc.u-tokyo.ac.jp/portal/sites/default/files/images/assets/1332747896774.jpg"
         },
         {
           thumbnail:
-            "https://iiif.dl.itc.u-tokyo.ac.jp/iiif/kunshujou/A00_6010/049/049_0175.tif/5397,2787,2009,2541/,300/0/default.jpg"
+            "https://da.dl.itc.u-tokyo.ac.jp/portal/sites/default/files/images/assets/miyake/f84c5dab77dd8daaf693d846309ddc8f.jpg"
         },
         {
           thumbnail:
-            "https://iiif.dl.itc.u-tokyo.ac.jp/iiif/kunshujou/A00_6010/043/043_0100.tif/5348,2846,1093,1004/,300/0/default.jpg"
+            "https://da.dl.itc.u-tokyo.ac.jp/portal/sites/default/files/images/assets/kahei/0a8c63313d3739395176e7378b2a5601_0.jpg"
         },
         {
           thumbnail:
-            "https://iiif.dl.itc.u-tokyo.ac.jp/iiif/kunshujou/A00_6010/026/026_0027.tif/3813,1735,2678,3432/,300/0/default.jpg"
+            "https://da.dl.itc.u-tokyo.ac.jp/portal/sites/default/files/images/assets/enshurin_tori/b1a2a77d-5247-4c96-9b72-e48cdbedd983.jpg"
         },
         {
           thumbnail:
-            "https://iiif.dl.itc.u-tokyo.ac.jp/iiif/kunshujou/A00_6010/065/065_0024.tif/5259,1940,1644,1960/,300/0/default.jpg"
+            "https://da.dl.itc.u-tokyo.ac.jp/portal/sites/default/files/images/assets/tokoro/116d52d2-ffb7-4119-a8da-768ee9499e89_2.jpg"
         }
       ]
     };
