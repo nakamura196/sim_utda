@@ -92,6 +92,7 @@ export default {
             items: [],
             number: 60,
             loading: true,
+            //prefix: "http://localhost:5001"
             prefix: "http://arctest03.dl.itc.u-tokyo.ac.jp"
         };
     },
@@ -157,7 +158,7 @@ export default {
 
             this.url = url //this.url;
 
-            const path = this.prefix+`/api/search`;
+            const path = this.prefix+`/api/asearch`;//this.prefix+`/api/search`;
             axios
                 .get(path, { params })
                 .then(response => {
