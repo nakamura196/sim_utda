@@ -13,6 +13,7 @@ ADD dist $dist_dir
 
 WORKDIR $project_dir
 
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 CMD ["python", "app.py"]
