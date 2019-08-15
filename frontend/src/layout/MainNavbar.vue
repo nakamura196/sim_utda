@@ -18,22 +18,17 @@
                         </mobile-menu>
                         <md-list>
     
-                            <md-list-item v-bind:to="{ name : 'index' }">
+                            <md-list-item :to="{ name : 'index' }">
                                 <i class="material-icons">home</i>
                                 <p>HOME</p>
                             </md-list-item>
     
-                            <md-list-item v-bind:to="{ name : 'search' }">
+                            <md-list-item :to="{ name : 'search' }">
                                 <i class="material-icons">search</i>
                                 <p>検索</p>
                             </md-list-item>
     
-                            <md-list-item href="/#/#example">
-                                <i class="material-icons">image_search</i>
-                                <p>検索例</p>
-                            </md-list-item>
-    
-                            <md-list-item href="/#/metadata">
+                            <md-list-item :to="{ name : 'metadata' }">
                                 <i class="material-icons">list</i>
                                 <p>メタデータ一覧</p>
                             </md-list-item>

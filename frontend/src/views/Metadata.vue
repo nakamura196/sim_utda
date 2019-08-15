@@ -8,7 +8,7 @@
                                 <h2 class="title text-center">{{i}}</h2>
                                 <div class="md-layout">
             <div class="md-layout-item md-size-66 mx-auto">
-                                <md-button :href="'/#/search?where_metadata_label='+i+'&where_metadata_value='+j" v-for="(value, j) in item"><i class="fas fa-tag"></i> {{j}}: {{value}}</md-button>
+                                <md-button v-bind:to="{ name : 'search', query : { where_metadata_label: i, where_metadata_value: j }}" v-for="(value, j) in item"><i class="fas fa-tag"></i> {{j}}: {{value}}</md-button>
     </div>
     </div>
 </template>

@@ -34,8 +34,8 @@
               <h2 class="title text-center">検索例</h2>
               <div class="md-layout">
                 <div class="md-layout-item md-size-33 md-xsmall-size-100" v-for="(item, i) in items" :key="i">
-                  <a v-bind:href="'/#/search?url='+ item.thumbnail"><img v-bind:src="item.thumbnail" alt="Rounded Image" class="rounded img-raised img-fluid"/></a>
-                  <h4><md-button v-bind:href="'/#/search?url='+ item.thumbnail" class="md-just-icon md-simple md-dribbble">
+                  <router-link v-bind:to="{ name : 'search', query : { url: item.thumbnail}}"><img v-bind:src="item.thumbnail" alt="Rounded Image" class="rounded img-raised img-fluid"/></router-link>
+                  <h4><md-button v-bind:to="{ name : 'search', query : { url: item.thumbnail}}" class="md-just-icon md-simple md-dribbble">
                       <i class="fa fa-search"></i>
                     </md-button>
                   </h4>
