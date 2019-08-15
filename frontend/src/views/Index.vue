@@ -7,7 +7,7 @@
             <h1 class="title">東京大学学術資産等アーカイブズポータル類似画像検索
             </h1>
             <br>
-            <md-button href="/#/search" class="md-success md-lg">
+            <md-button v-bind:to="{ name : 'search'}" class="md-success md-lg">
               <i class="fas fa-search"></i>試してみる
             </md-button>
           </div>
