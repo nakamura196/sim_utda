@@ -48,5 +48,5 @@ while (flg):
             ]
         }
 
-fw2 = open("data/data_0.json", 'w')
+fw2 = open("data/base.json", 'w')
 json.dump(map, fw2, ensure_ascii=False, indent=4, sort_keys=True, separators=(',', ': '))

@@ -32,6 +32,7 @@ export default {
     data() {
         return {
             items: {},
+            //prefix: "http://localhost:5001"
             prefix: "http://arctest03.dl.itc.u-tokyo.ac.jp"
         };
     },

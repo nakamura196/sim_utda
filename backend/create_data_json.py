@@ -1,21 +1,35 @@
 import glob
-import numpy
 import json
 import urllib.request
 import csv
 from hashlib import md5
-from helper import *
-import requests
+
 import shutil
 
 with open('data/features_list.json') as f:
     df = json.load(f)
 
-with open('data/data_0.json') as f:
-    metadata = json.load(f)
+terms = [
+    # {
+    #     "term": "clarifais",
+    #     "label": "機械タグ"
+    # },
+    # {
+    #     "term": "gcv",
+    #     "label": "機械タグ2"
+    # },
+    {
+        "term": "od",
+        "label": "機械タグ"
+    }
+]
 
-with open('data/clarifais.json') as f:
-    clarifais = json.load(f)
+for term in terms:
+    with open('data/'+term["term"]+'.json') as f:
+        term["data"] = json.load(f)
+
+with open('data/base.json') as f:
+    metadata = json.load(f)
 
 data = {}
 
@@ -26,15 +40,25 @@ for i in range(len(df)):
         obj = metadata[id]
         obj["index"] = i
 
-        if id in clarifais:
-            for yolo in clarifais[id]:
-                obj["metadata"].append({
-                    "label" : "機械タグ",
-                    "value" : yolo
-                })
+        for term in terms:
+
+            term_data = term["data"]
+
+            if id in term_data:
+                for t in term_data[id]:
+                    obj["metadata"].append({
+                        "label": term["label"],
+                        "value": t
+                    })
 
         data[i] = obj
 
 with open('data/data.json', 'w') as outfile:
-    json.dump(data, outfile, ensure_ascii=False,
+    json.dump(data, outfile, ensure_ascii=False, indent=4,
               sort_keys=True, separators=(',', ': '))
+
+print("画像総数：")
+print(len(df))
+
+print("メタデータ数：")
+print(len(data))

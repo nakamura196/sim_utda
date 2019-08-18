@@ -22,7 +22,7 @@
               <h2 class="title text-center">About</h2>
 
               <h5 class="description">&nbsp;&nbsp;東京大学学術資産等アーカイブズポータルで公開されている画像を検索できます。</h5>
-              <h5 class="description">&nbsp;&nbsp;<a href="http://image-net.org/challenges/LSVRC/2012/">ImageNet 2012</a>で訓練された<a href="https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf">Inception</a> Convolutional Neural Networkを用いた抽出した特徴量の<a href="https://en.wikipedia.org/wiki/Nearest_neighbor_search#Approximate_nearest_neighbor">近似最近傍</a>に基づく類似度を使用しています。</h5>
+              <h5 class="description">&nbsp;&nbsp;<a href="http://image-net.org/challenges/LSVRC/2012/">ImageNet 2012</a>で訓練された<a href="https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf">Inception</a> Convolutional Neural Networkを用いて抽出した特徴量の<a href="https://en.wikipedia.org/wiki/Nearest_neighbor_search#Approximate_nearest_neighbor">近似最近傍</a>に基づく類似度を使用しています。</h5>
             </div>
           </div>
         </div>

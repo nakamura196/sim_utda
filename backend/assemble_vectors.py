@@ -12,7 +12,11 @@ files = glob.glob("data/image_vectors/*.npy")
 
 features = []
 
-for file in files:
+for i in range(len(files)):
+    if i % 100 == 0:
+        print(str(i+1))
+
+    file = files[i]
     a = numpy.load(file)
     features.append(a)
 
