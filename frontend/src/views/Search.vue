@@ -93,7 +93,7 @@ export default {
             number: 60,
             loading: true,
             //prefix: "http://localhost:5001"
-            prefix: "http://arctest03.dl.itc.u-tokyo.ac.jp"
+            prefix: "http://portal-i.dl.itc.u-tokyo.ac.jp"
         };
     },
     props: {

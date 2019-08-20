@@ -2,7 +2,7 @@
     <md-toolbar id="toolbar" md-elevation="0" class="md-transparent md-absolute" :class="extraNavClasses" :color-on-scroll="colorOnScroll">
         <div class="md-toolbar-row md-collapse-lateral">
             <div class="md-toolbar-section-start">
-                <h3 class="md-title">東京大学学術資産等アーカイブズポータル画像検索</h3>
+                <h3 class="md-title">UTDA画像検索</h3>
             </div>
             <div class="md-toolbar-section-end">
                 <md-button class="md-just-icon md-simple md-toolbar-toggle" :class="{toggled: toggledClass}" @click="toggleNavbarMobile()">
