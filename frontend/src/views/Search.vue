@@ -250,8 +250,8 @@ export default {
       items: [],
       number: 60,
       loading: true,
-      prefix: "http://localhost:5001",
-      //prefix: "http://portal-i.dl.itc.u-tokyo.ac.jp",
+      //prefix: "http://localhost:5001",
+      prefix: "http://portal-i.dl.itc.u-tokyo.ac.jp",
       crop_dataurl: null,
       classicModal: false
     };
