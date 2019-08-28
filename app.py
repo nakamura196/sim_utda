@@ -59,7 +59,7 @@ file_index_to_file_vector = {}
 dims = 2048
 n_nearest_neighbors = 60
 # trees = 10000
-trees = 1 #100
+trees = 100
 # infiles = glob.glob('image_vectors/*.npy')
 
 # t0 = time.time() - start
@@ -83,13 +83,15 @@ for file_index, i in enumerate(infiles):
 '''
 
 for file_index in range(len(features2)):
-    # print(file_index)
     file_vector = features2[file_index]
     if str(file_index) in files:
         file_name = files[str(file_index)]["id"].split("/")[-1]
         file_index_to_file_name[file_index] = file_name
         file_index_to_file_vector[file_index] = file_vector
         t.add_item(file_index, file_vector)
+    
+    # if i > 10:
+    #     break
 
 t1 = time.time() - start
 print("enumerate(infiles):{0}".format(t1) + "[sec]")
@@ -152,13 +154,16 @@ print("END:{0}".format(t1) + "[sec]")
 def index():
     return render_template("index.html")
 
-@app.route('/api/asearch')
+
+@app.route('/api/asearch', methods=["GET", "POST"])
 def api_asearch():
 
-    # start = time.time()
-
-    url = request.args.get('url', default=None, type=str)
-    CANDIDATES = request.args.get('rows', default=40, type=int)
+    if request.method == 'POST':
+        url = request.form.get("url", default=None, type=str)
+        CANDIDATES = request.form.get("rows", default=40, type=int)
+    else:
+        url = request.args.get('url', default=None, type=str)
+        CANDIDATES = request.args.get('rows', default=40, type=int)
 
     CANDIDATES -= 1
 

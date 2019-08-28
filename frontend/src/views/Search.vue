@@ -27,7 +27,11 @@
                   style="margin-right : 10px; margin-left : 10px;"
                   type="button"
                   class="md-button md-success md-theme-default"
-                  v-on:click="$router.push({ query: { url: url } })"
+                  v-on:click="
+                    if (url != null) {
+                      $router.push({ query: { url: url } });
+                    }
+                  "
                 >
                   <div class="md-ripple">
                     <div class="md-button-content">
@@ -39,7 +43,12 @@
                   style="margin-right : 10px; margin-left : 10px;"
                   type="button"
                   class="md-button md-primary md-theme-default"
-                  v-on:click="$router.push({ query: {} })"
+                  v-on:click="
+                    if (url != null) {
+                      $router.push({ query: {} });
+                    }
+                    search();
+                  "
                 >
                   <!-- v-on:click="search_random()" -->
                   <div class="md-ripple">
@@ -313,17 +322,27 @@ export default {
         this.loading = false;
         this.items = response.data;
       });
+      /*
+        .catch(error => {
+          console.log(error);
+        });
+        */
     },
     search_url: function(url) {
-      var params = {};
-      params.url = url;
-      params.rows = this.number;
+      let params = new URLSearchParams();
+      params.append("url", url);
+      params.append("rows", this.number);
 
       const path = this.prefix + `/api/asearch`; //this.prefix+`/api/search`;
-      axios.get(path, { params }).then(response => {
+      axios.post(path, params).then(response => {
         this.loading = false;
         this.items = response.data;
       });
+      /*
+        .catch(error => {
+          console.log(error);
+        });
+        */
     },
     search_metadata: function(label, value) {
       var params = {};
@@ -336,6 +355,11 @@ export default {
         this.loading = false;
         this.items = response.data;
       });
+      /*
+        .catch(error => {
+          console.log(error);
+        });
+        */
     },
     rotate() {
       // guess what this does :)
