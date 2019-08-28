@@ -19,6 +19,7 @@ import numpy as np
 import collections
 # ソースコード
 import copy
+from base64 import b64decode
 
 app = Flask(__name__,
             static_folder="./dist/static",
@@ -58,7 +59,7 @@ file_index_to_file_vector = {}
 dims = 2048
 n_nearest_neighbors = 60
 # trees = 10000
-trees = 100
+trees = 1 #100
 # infiles = glob.glob('image_vectors/*.npy')
 
 # t0 = time.time() - start
@@ -151,7 +152,6 @@ print("END:{0}".format(t1) + "[sec]")
 def index():
     return render_template("index.html")
 
-
 @app.route('/api/asearch')
 def api_asearch():
 
@@ -169,7 +169,15 @@ def api_asearch():
         else:
 
             query_img = "/tmp/tmp.jpg"
-            urllib.request.urlretrieve(url, "{0}".format(query_img))
+
+            if "data:image" in url:
+                header, encoded = url.split(",", 1)
+                data = b64decode(encoded)
+
+                with open(query_img, "wb") as f:
+                    f.write(data)
+            else:
+                urllib.request.urlretrieve(url, "{0}".format(query_img))
 
             with tf.gfile.FastGFile(MODEL_PATH, 'rb') as f:
                 graph_def = tf.GraphDef()

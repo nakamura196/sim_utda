@@ -4,10 +4,9 @@
       <div class="container">
         <div class="md-layout">
           <div class="md-layout-item">
-            <h1 class="title">UTDA画像検索
-            </h1>
-            <br>
-            <md-button v-bind:to="{ name : 'search'}" class="md-success md-lg">
+            <h1 class="title">UTDA画像検索</h1>
+            <br />
+            <md-button v-bind:to="{ name: 'search' }" class="md-success md-lg">
               <i class="fas fa-search"></i>試してみる
             </md-button>
           </div>
@@ -18,11 +17,27 @@
       <div class="section" id="about">
         <div class="container">
           <div class="md-layout">
-            <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center">
+            <div
+              class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
+            >
               <h2 class="title text-center">About</h2>
 
-              <h5 class="description">&nbsp;&nbsp;東京大学学術資産等アーカイブズポータルで公開されている画像を検索できます。</h5>
-              <h5 class="description">&nbsp;&nbsp;<a href="http://image-net.org/challenges/LSVRC/2012/">ImageNet 2012</a>で学習した<a href="https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf">Inception</a> Convolutional Neural Networkを用いて抽出した特徴量に対して、<a href="https://en.wikipedia.org/wiki/Nearest_neighbor_search#Approximate_nearest_neighbor">近似最近傍探索</a>を用いた類似画像検索を行います。</h5>
+              <h5 class="description">
+                &nbsp;&nbsp;東京大学学術資産等アーカイブズポータルで公開されている画像を検索できます。
+              </h5>
+              <h5 class="description">
+                &nbsp;&nbsp;<a
+                  href="http://image-net.org/challenges/LSVRC/2012/"
+                  >ImageNet 2012</a
+                >で学習した<a
+                  href="https://www.cs.unc.edu/~wliu/papers/GoogLeNet.pdf"
+                  >Inception</a
+                >
+                Convolutional Neural Networkを用いて抽出した特徴量に対して、<a
+                  href="https://en.wikipedia.org/wiki/Nearest_neighbor_search#Approximate_nearest_neighbor"
+                  >近似最近傍探索</a
+                >を用いた類似画像検索を行います。
+              </h5>
             </div>
           </div>
         </div>
@@ -30,12 +45,34 @@
       <div class="section" id="example">
         <div class="container">
           <div class="md-layout">
-            <div class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center">
+            <div
+              class="md-layout-item md-size-66 md-xsmall-size-100 mx-auto text-center"
+            >
               <h2 class="title text-center">検索例</h2>
               <div class="md-layout">
-                <div class="md-layout-item md-size-33 md-xsmall-size-100" v-for="(item, i) in items" :key="i">
-                  <router-link v-bind:to="{ name : 'search', query : { url: item.thumbnail}}"><img v-bind:src="item.thumbnail" alt="Rounded Image" class="rounded img-raised img-fluid"/></router-link>
-                  <h4><md-button v-bind:to="{ name : 'search', query : { url: item.thumbnail}}" class="md-just-icon md-simple md-dribbble">
+                <div
+                  class="md-layout-item md-size-33 md-xsmall-size-100"
+                  v-for="(item, i) in items"
+                  :key="i"
+                >
+                  <router-link
+                    v-bind:to="{
+                      name: 'search',
+                      query: { url: item.thumbnail }
+                    }"
+                    ><img
+                      v-bind:src="item.thumbnail"
+                      alt="Rounded Image"
+                      class="rounded img-raised img-fluid"
+                  /></router-link>
+                  <h4>
+                    <md-button
+                      v-bind:to="{
+                        name: 'search',
+                        query: { url: item.thumbnail }
+                      }"
+                      class="md-just-icon md-simple md-dribbble"
+                    >
                       <i class="fa fa-search"></i>
                     </md-button>
                   </h4>
@@ -48,6 +85,7 @@
     </div>
   </div>
 </template>
+
 <script>
 export default {
   bodyClass: "landing-page",
@@ -96,11 +134,14 @@ export default {
   }
 };
 </script>
+
 <style lang="scss" scoped>
-h1, h2 {
+h1,
+h2 {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
+
 .page-header {
-    height: 70vh;
+  height: 70vh;
 }
 </style>

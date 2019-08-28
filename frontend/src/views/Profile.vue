@@ -68,6 +68,7 @@
                   </div>
                 </div>
               </template>
+
               <template slot="tab-pane-2">
                 <div class="md-layout">
                   <div class="md-layout-item md-size-25 ml-auto">
@@ -81,6 +82,7 @@
                   </div>
                 </div>
               </template>
+
               <template slot="tab-pane-3">
                 <div class="md-layout">
                   <div class="md-layout-item md-size-25 ml-auto">
@@ -162,11 +164,9 @@ export default {
   .md-card-tabs .md-list {
     justify-content: center;
   }
-
   [class*="tab-pane-"] {
     margin-top: 3.213rem;
     padding-bottom: 50px;
-
     img {
       margin-bottom: 2.142rem;
     }

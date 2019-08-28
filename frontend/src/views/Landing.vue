@@ -322,6 +322,7 @@ export default {
   display: flex;
   justify-content: center !important;
 }
+
 .contact-form {
   margin-top: 30px;
 }
