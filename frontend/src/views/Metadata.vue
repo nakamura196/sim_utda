@@ -68,16 +68,15 @@ export default {
 
       const path = this.prefix + `/api/metadata`;
 
-      axios
-        .get(path)
-        .then(response => {
-          this.loading = false;
-          this.items = response.data;
-          console.log(this.items);
-        })
+      axios.get(path).then(response => {
+        this.loading = false;
+        this.items = response.data;
+      });
+      /*
         .catch(error => {
           console.log(error);
         });
+        */
     }
   },
   created() {

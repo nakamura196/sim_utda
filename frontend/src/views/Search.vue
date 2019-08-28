@@ -46,8 +46,9 @@
                   v-on:click="
                     if (url != null) {
                       $router.push({ query: {} });
+                    } else {
+                      search();
                     }
-                    search();
                   "
                 >
                   <!-- v-on:click="search_random()" -->
@@ -144,7 +145,7 @@
                   <button
                     style="margin-right : 10px; margin-left : 10px;"
                     type="button"
-                    class="md-button md-primary md-theme-default"
+                    class="md-button md-theme-default"
                     @click="rotate"
                   >
                     <div class="md-ripple">
@@ -177,11 +178,12 @@
             >
               <router-link
                 v-bind:to="{ name: 'search', query: { url: item.thumbnail } }"
-                ><img
-                  v-bind:src="item.thumbnail"
-                  alt="Image"
+              >
+                <v-lazy-image
+                  :src="item.thumbnail"
                   class="img-raised img-fluid"
-              /></router-link>
+                />
+              </router-link>
 
               <h4>{{ item.label }}</h4>
               <p>
@@ -245,19 +247,21 @@ import { Modal } from "@/components";
 // Local
 import VueCropper from "vue-cropperjs";
 import "cropperjs/dist/cropper.css";
+import VLazyImage from "v-lazy-image";
 export default {
   components: {
     Badge,
     Slider,
     VueCropper,
-    Modal
+    Modal,
+    VLazyImage
   },
   bodyClass: "profile-page",
   data() {
     return {
       url: null,
       items: [],
-      number: 60,
+      number: 40,
       loading: true,
       //prefix: "http://localhost:5001",
       prefix: "http://portal-i.dl.itc.u-tokyo.ac.jp",
@@ -285,15 +289,15 @@ export default {
   },
   methods: {
     search: function() {
+      this.loading = true;
+      this.items = [];
+
       this.url = null;
       this.crop_dataurl = null;
 
       this.classicModal = false;
 
       let param = Object.assign({}, this.$route.query);
-
-      this.loading = true;
-      this.items = [];
 
       if (param.where_metadata_label) {
         this.search_metadata(
@@ -323,10 +327,10 @@ export default {
         this.items = response.data;
       });
       /*
-        .catch(error => {
-          console.log(error);
-        });
-        */
+                          .catch(error => {
+                            console.log(error);
+                          });
+                          */
     },
     search_url: function(url) {
       let params = new URLSearchParams();
@@ -339,10 +343,10 @@ export default {
         this.items = response.data;
       });
       /*
-        .catch(error => {
-          console.log(error);
-        });
-        */
+                          .catch(error => {
+                            console.log(error);
+                          });
+                          */
     },
     search_metadata: function(label, value) {
       var params = {};
@@ -356,10 +360,10 @@ export default {
         this.items = response.data;
       });
       /*
-        .catch(error => {
-          console.log(error);
-        });
-        */
+                          .catch(error => {
+                            console.log(error);
+                          });
+                          */
     },
     rotate() {
       // guess what this does :)
@@ -378,5 +382,14 @@ export default {
 <style lang="scss" scoped>
 .page-header {
   height: 200px !important;
+}
+
+.v-lazy-image {
+  filter: blur(10px);
+  transition: filter 0.7s;
+}
+
+.v-lazy-image-loaded {
+  filter: blur(0);
 }
 </style>
