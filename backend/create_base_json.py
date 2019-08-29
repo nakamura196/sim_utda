@@ -45,7 +45,8 @@ while (flg):
                     "label" : "部局",
                     "value" : attribution
                 }
-            ]
+            ],
+            "url" : url
         }
 
 fw2 = open("data/base.json", 'w')

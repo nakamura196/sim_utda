@@ -57,7 +57,6 @@ file_index_to_file_vector = {}
 
 # config
 dims = 2048
-n_nearest_neighbors = 60
 # trees = 10000
 trees = 100
 # infiles = glob.glob('image_vectors/*.npy')
@@ -209,7 +208,7 @@ def api_asearch():
     # t1 = time.time() - start
     # print("入力画像の読み込み:{0}".format(t1) + "[sec]")
 
-    nearest_neighbors = t.get_nns_by_vector(master_vector, n_nearest_neighbors)
+    nearest_neighbors = t.get_nns_by_vector(master_vector, CANDIDATES)
 
     # t2 = time.time() - start
     # print("類似画像の抽出:{0}".format(t2) + "[sec]")
