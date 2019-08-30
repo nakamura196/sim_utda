@@ -13,11 +13,10 @@
                 <div class="md-field md-theme-default">
                   <input
                     v-model="url"
-                    placeholder="Image URL (http://...jpg) OR アーカイブズポータルのURL (https://da.dl.itc.u-tokyo.ac.jp/portal/assets/...)"
+                    placeholder="Image URL (http://...jpg) OR アーカイブズポータルのアイテム詳細画面URL (https://da.dl.itc.u-tokyo.ac.jp/portal/assets/...)"
                     type="text"
                     id="md-input-czbyynxyg"
                     class="md-input"
-                    @change="editUrl"
                   />
                 </div>
               </div>
@@ -289,16 +288,24 @@ export default {
     }
   },
   methods: {
+    /*
     editUrl: function() {
       if (
         this.url.indexOf("https://da.dl.itc.u-tokyo.ac.jp/portal/assets/") != -1
       ) {
         let json_url = this.url + "?_format=json";
-        axios.get(json_url, {}).then(response => {
-          this.url = response.data["foaf:thumbnail"]["@id"];
-        });
+        axios
+          .get(json_url, {})
+          .then(response => {
+            this.url = response.data["foaf:thumbnail"]["@id"];
+          })
+          .catch(error => {
+            alert(error);
+            this.loading = false;
+          });
       }
     },
+    */
     search: function() {
       this.loading = true;
       this.items = [];
@@ -333,32 +340,50 @@ export default {
       var params = {};
       params.rows = this.number;
 
-      axios.get(path, { params }).then(response => {
-        this.loading = false;
-        this.items = response.data;
-      });
-      /*
-                                      .catch(error => {
-                                        console.log(error);
-                                      });
-                                      */
-    },
-    search_url: function(url) {
-      if (url.indexOf(".jpg") == -1 || url.indexOf(".png") == -1) {
-        let params = new URLSearchParams();
-        params.append("url", url);
-        params.append("rows", this.number);
-
-        const path = this.prefix + `/api/asearch`; //this.prefix+`/api/search`;
-        axios.post(path, params).then(response => {
+      axios
+        .get(path, { params })
+        .then(response => {
           this.loading = false;
           this.items = response.data;
+        })
+        .catch(error => {
+          alert(error);
+          this.loading = false;
         });
-        /*
-                                        .catch(error => {
-                                          console.log(error);
-                                        });
-                                        */
+    },
+    search_url: function(url) {
+      if (
+        this.url.indexOf("https://da.dl.itc.u-tokyo.ac.jp/portal/assets/") != -1
+      ) {
+        let json_url = this.url + "?_format=json";
+        axios
+          .get(json_url, {})
+          .then(response => {
+            this.url = response.data["foaf:thumbnail"]["@id"];
+            this.search_url(url);
+          })
+          .catch(error => {
+            alert(error);
+            this.loading = false;
+          });
+      } else {
+        if (url.indexOf(".jpg") == -1 || url.indexOf(".png") == -1) {
+          let params = new URLSearchParams();
+          params.append("url", url);
+          params.append("rows", this.number);
+
+          const path = this.prefix + `/api/asearch`; //this.prefix+`/api/search`;
+          axios
+            .post(path, params)
+            .then(response => {
+              this.loading = false;
+              this.items = response.data;
+            })
+            .catch(error => {
+              alert(error);
+              this.loading = false;
+            });
+        }
       }
     },
     search_metadata: function(label, value) {
@@ -368,15 +393,16 @@ export default {
       params.rows = this.number;
 
       const path = this.prefix + `/api/msearch`;
-      axios.get(path, { params }).then(response => {
-        this.loading = false;
-        this.items = response.data;
-      });
-      /*
-                                      .catch(error => {
-                                        console.log(error);
-                                      });
-                                      */
+      axios
+        .get(path, { params })
+        .then(response => {
+          this.loading = false;
+          this.items = response.data;
+        })
+        .catch(error => {
+          alert(error);
+          this.loading = false;
+        });
     },
     rotate() {
       // guess what this does :)
