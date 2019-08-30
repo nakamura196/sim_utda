@@ -338,26 +338,28 @@ export default {
         this.items = response.data;
       });
       /*
-                                .catch(error => {
-                                  console.log(error);
-                                });
-                                */
+                                      .catch(error => {
+                                        console.log(error);
+                                      });
+                                      */
     },
     search_url: function(url) {
-      let params = new URLSearchParams();
-      params.append("url", url);
-      params.append("rows", this.number);
+      if (url.indexOf(".jpg") == -1 || url.indexOf(".png") == -1) {
+        let params = new URLSearchParams();
+        params.append("url", url);
+        params.append("rows", this.number);
 
-      const path = this.prefix + `/api/asearch`; //this.prefix+`/api/search`;
-      axios.post(path, params).then(response => {
-        this.loading = false;
-        this.items = response.data;
-      });
-      /*
-                                .catch(error => {
-                                  console.log(error);
-                                });
-                                */
+        const path = this.prefix + `/api/asearch`; //this.prefix+`/api/search`;
+        axios.post(path, params).then(response => {
+          this.loading = false;
+          this.items = response.data;
+        });
+        /*
+                                        .catch(error => {
+                                          console.log(error);
+                                        });
+                                        */
+      }
     },
     search_metadata: function(label, value) {
       var params = {};
@@ -371,10 +373,10 @@ export default {
         this.items = response.data;
       });
       /*
-                                .catch(error => {
-                                  console.log(error);
-                                });
-                                */
+                                      .catch(error => {
+                                        console.log(error);
+                                      });
+                                      */
     },
     rotate() {
       // guess what this does :)
