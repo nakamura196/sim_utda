@@ -360,7 +360,7 @@ export default {
           .get(json_url, {})
           .then(response => {
             this.url = response.data["foaf:thumbnail"]["@id"];
-            this.search_url(url);
+            this.search_url(this.url);
           })
           .catch(error => {
             alert(error);
